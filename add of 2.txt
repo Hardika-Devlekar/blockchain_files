@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+/**
+ * @title Storage
+ * @dev Store & retrieve value in a variable
+ * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
+ */
+contract MathOperations {
+    function mathOperations(uint256 a, uint256 b) public pure returns (uint256 addition, uint256 product, 
+    uint256 orOperation, uint256 notOperation) {
+        // Addition
+        addition = a + b;
+        
+        // Multiplication
+        product = a * b;
+        
+        // Bitwise OR operation
+        orOperation = a | b;
+        
+        // Bitwise NOT operation on the product
+        notOperation = ~product;
+        
+        return (addition, product, orOperation, notOperation);
+    }
+}

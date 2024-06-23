@@ -1,0 +1,36 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+/**
+ * @title Storage
+ * @dev Store & retrieve value in a variable
+ * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
+ */
+contract Attendence {
+
+    uint256[] public rollno;
+    uint256 Date;
+
+    /**
+     * @dev Store value in variable
+     * @param num value to store
+     */
+    function addrollno(uint256 num) public {
+        rollno.push(num);
+    }
+
+    function todaydate(uint256 dd) public {
+        Date = dd;
+    }
+    function checkrollno(uint256 ind) public view returns (string memory) {
+        require(ind < rollno.length, "Index out of bounds");
+        uint256 Res = rollno[ind] & Date;
+        if(Res % 2 ==0) {
+            return "Student is Allowed";
+        } else {
+            return "Student is denied";
+        }
+
+    }
+}

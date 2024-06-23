@@ -1,0 +1,40 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+/**
+ * @title Storage
+ * @dev Store & retrieve value in a variable
+ * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
+ */
+contract Birth {
+
+    uint256 number1;
+    uint256 number2;
+    uint256 Date;
+    uint256 Month;
+    uint256 Year1;
+    uint256 Year2;
+
+    function getdetails(uint256 dd,uint256 mm,uint256 yy1,uint256 yy2) public {
+        Date = dd;
+        Month = mm;
+        Year1 = yy1;
+        Year2 = yy2;
+
+        number1 = dd & mm;
+        number2 = yy1 | yy2;
+    }
+
+    /**
+     * @dev Return value 
+     * @return value of 'number'
+     */
+    function AddMod() public view returns (uint256){
+        return addmod(number1, number2, Date);
+    }
+
+    function Mulmod() public view returns(uint256){
+        return mulmod(number1, number2, Month);
+    }
+}

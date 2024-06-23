@@ -1,0 +1,40 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+/**
+ * @title Storage
+ * @dev Store & retrieve value in a variable
+ * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
+ */
+contract MathOperations {
+    uint256[] public numbers;
+
+    constructor() {
+        numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    }
+
+    function addFiveNumbers(uint256[5] memory indices) public view returns (uint256) {
+        uint256 sum = 0;
+        for (uint256 i = 0; i < 5; i++) {
+            sum += numbers[indices[i]];
+        }
+        return sum;
+    }
+
+    function orOperation(uint256 a, uint256 b) public pure returns (uint256) {
+        return a | b;
+    }
+
+    function andOperation(uint256 a, uint256 b) public pure returns (uint256) {
+        return a & b;
+    }
+
+    function multiply(uint256 a, uint256 b) public pure returns (uint256) {
+        return a * b;
+    }
+
+    function multiply(uint256 a, uint256 b, uint256 c) public pure returns (uint256) {
+        return a * b * c;
+    }
+}

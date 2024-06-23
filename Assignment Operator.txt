@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+/**
+ * @title Storage
+ * @dev Store & retrieve value in a variable
+ * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
+ */
+contract AssignmentOperators{
+
+    function simpleAssignment() public pure returns(string memory) {
+        string memory result= "simple assignment";
+        return result;
+    }
+
+    function AddAndAssignment() public pure returns (uint){
+        uint result = 1;
+        result +=2;
+        return result;
+    }
+    function SubAndAssignment() public pure returns(uint) {
+        uint result = 6;
+        result -=2;
+        return result;
+    }
+    function MulAndAssignment() public pure returns(uint) {
+        uint result = 6;
+        result *= 2;
+        return result;
+    }
+}

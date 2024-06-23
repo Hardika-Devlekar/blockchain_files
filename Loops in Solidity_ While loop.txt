@@ -1,0 +1,31 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+/**
+ * @title Storage
+ * @dev Store & retrieve value in a variable
+ * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
+ */
+contract Loops {
+
+    uint256 private result = 0;
+
+  
+    function whileloop(uint256 number) public returns(uint256) {
+        uint256 i = 1;
+        while(i <= number){
+            result += i;
+            i++;
+        }
+        return result;
+    }
+
+    /**
+     * @dev Return value 
+     * @return value of 'number'
+     */
+    function getwhileLoop() public view returns (uint256) {
+        return result;
+    }
+}
